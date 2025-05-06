@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       users: [],
+      isAgeConfirmed: false,
     }
   },
 
@@ -20,7 +21,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <!-- <div>
     <h1>Hello Vue</h1>
     {{ users }}
     {{ isButtonDisabled }}
@@ -28,8 +29,14 @@ export default {
   <div>
     <MButton :is-disabled="isButtonDisabled" @click="users.push({})" />
     <MButton />
-  </div>
+  </div> -->
   <div>
-    <MSwitch />
+    <MSwitch v-model="isAgeConfirmed" />
+
+    <!-- <MSwitch
+      :model-value="isAgeConfirmed"
+      @update:model-value="isAgeConfirmed = $event"
+    /> -->
   </div>
+  {{ isAgeConfirmed }}
 </template>
