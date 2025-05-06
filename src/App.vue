@@ -26,7 +26,7 @@ export default {
     {{ isButtonDisabled }}
   </div>
   <div>
-    <MButton :disabled="isButtonDisabled" @click="users.push({})" />
+    <MButton :is-disabled="isButtonDisabled" @click="users.push({})" />
     <MButton />
   </div>
   <div>

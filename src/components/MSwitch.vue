@@ -17,7 +17,7 @@ function onToggle() {
       On
     </label>
   </div>
-  <p>Статус: {{ isChecked ? 'Включено' : 'Выключено' }}</p>
+  <p>Вам есть 18?: {{ isChecked ? 'Да' : 'Нет' }}</p>
 </template>
 
 <style scoped>
