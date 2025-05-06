@@ -1,8 +1,9 @@
 <script>
 import MButton from '@/components/MButton.vue'
+import MSwitch from '@/components/MSwitch.vue'
 
 export default {
-  components: { MButton },
+  components: { MButton, MSwitch },
 
   data() {
     return {
@@ -27,5 +28,8 @@ export default {
   <div>
     <MButton :disabled="isButtonDisabled" @click="users.push({})" />
     <MButton />
+  </div>
+  <div>
+    <MSwitch />
   </div>
 </template>
