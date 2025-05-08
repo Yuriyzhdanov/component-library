@@ -2,9 +2,10 @@
 import MBreadcrumbs from '@/components/MBreadcrumbs.vue'
 import MButton from '@/components/MButton.vue'
 import MSwitch from '@/components/MSwitch.vue'
+import MFAB from './components/MFAB.vue'
 
 export default {
-  components: { MButton, MSwitch, MBreadcrumbs },
+  components: { MButton, MSwitch, MBreadcrumbs, MFAB },
 
   data() {
     return {
@@ -22,22 +23,22 @@ export default {
 </script>
 
 <template>
-  <MBreadcrumbs />
-  <div>
-    <h1>Hello Vue</h1>
-    {{ users }}
-    {{ isButtonDisabled }}
-  </div>
-  <div>
-    <MButton :is-disabled="isButtonDisabled" @click="users.push({})" />
-    <MButton />
-  </div>
-  <div>
-    <!-- <MSwitch v-model="isAgeConfirmed" /> -->
-    <MSwitch
-      :model-value="isAgeConfirmed"
-      @update:model-value="isAgeConfirmed = $event"
-    />
-  </div>
-  {{ isAgeConfirmed }}
+  <section>
+    <article>
+      <MBreadcrumbs />
+    </article>
+
+    <article>
+      <MButton :is-disabled="isButtonDisabled" @click="users.push({})" />
+      <MButton />
+    </article>
+
+    <article>
+      <MSwitch v-model="isAgeConfirmed" />
+    </article>
+
+    <article>
+      <MFAB />
+    </article>
+  </section>
 </template>
