@@ -11,6 +11,8 @@ export default {
     return {
       users: [],
       isAgeConfirmed: false,
+      hasNewMessage: true,
+      isLoggedIn: true,
     }
   },
 
@@ -34,11 +36,22 @@ export default {
     </article>
 
     <article>
-      <MSwitch v-model="isAgeConfirmed" />
+      <MSwitch v-model="hasNewMessage" />
+      <MSwitch v-model="isLoggedIn" />
     </article>
 
     <article>
-      <MFAB />
+      <MFAB icon="home" v-model="hasNewMessage" :is-show="isLoggedIn" />
+    </article>
+
+    <article>
+      {{ hasNewMessage }}
     </article>
   </section>
 </template>
+
+<style>
+article {
+  margin: 25px;
+}
+</style>
