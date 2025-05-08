@@ -3,9 +3,10 @@ import MBreadcrumbs from '@/components/MBreadcrumbs.vue'
 import MButton from '@/components/MButton.vue'
 import MSwitch from '@/components/MSwitch.vue'
 import MFAB from './components/MFAB.vue'
+import MDropdown from './components/MDropdown.vue'
 
 export default {
-  components: { MButton, MSwitch, MBreadcrumbs, MFAB },
+  components: { MButton, MSwitch, MBreadcrumbs, MFAB, MDropdown },
 
   data() {
     return {
@@ -26,7 +27,7 @@ export default {
 
 <template>
   <section>
-    <article>
+    <!-- <article>
       <MBreadcrumbs />
     </article>
 
@@ -37,15 +38,16 @@ export default {
 
     <article>
       <MSwitch v-model="hasNewMessage" />
-      <MSwitch v-model="isLoggedIn" />
+      
     </article>
 
     <article>
       <MFAB icon="home" v-model="hasNewMessage" :is-show="isLoggedIn" />
-    </article>
+    </article> -->
 
+    <MSwitch v-model="isLoggedIn" />
     <article>
-      {{ hasNewMessage }}
+      <MDropdown v-if="isLoggedIn" />
     </article>
   </section>
 </template>
