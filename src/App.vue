@@ -4,9 +4,10 @@ import MButton from '@/components/MButton.vue'
 import MSwitch from '@/components/MSwitch.vue'
 import MFAB from './components/MFAB.vue'
 import MDropdown from './components/MDropdown.vue'
+import MLinks from './components/MLinks.vue'
 
 export default {
-  components: { MButton, MSwitch, MBreadcrumbs, MFAB, MDropdown },
+  components: { MButton, MSwitch, MBreadcrumbs, MFAB, MDropdown, MLinks },
 
   data() {
     return {
@@ -14,6 +15,8 @@ export default {
       isAgeConfirmed: false,
       hasNewMessage: true,
       isLoggedIn: true,
+      users: ['vasya', 'petya', 'fedya', 'masha'],
+      selectedUser: 'masha',
     }
   },
 
@@ -62,6 +65,9 @@ export default {
     </article>
     <article>
       <MFAB icon="home" v-model="hasNewMessage" :is-show="isLoggedIn" />
+    </article>
+    <article>
+      <MLinks :list-available="users" :selected-item="selectedUser" />
     </article>
   </section>
 </template>
