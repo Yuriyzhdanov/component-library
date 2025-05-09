@@ -1,11 +1,26 @@
 <script>
 export default {
-  props: ['icon', 'modelValue', 'isShow'],
+  props: ['modelValue', 'isShow', 'icon'],
 
   emit: ['update:model-value'],
 
+  data() {
+    return {
+      isInvisible: true,
+    }
+  },
+
+  watch: {
+    isShow(newValue) {
+      this.isInvisible = !newValue
+    },
+  },
+
   mounted() {
     console.log('MFAB mounted')
+    requestAnimationFrame(() => {
+      this.isInvisible = false || !this.isShow
+    })
   },
 }
 </script>
@@ -13,7 +28,7 @@ export default {
 <template>
   <a
     class="btn-floating btn-large waves-effect waves-light scale-transition"
-    :class="{ pulse: modelValue, 'scale-out': !isShow }"
+    :class="{ pulse: modelValue, 'scale-out': isInvisible }"
     @click="$emit('update:model-value', false)"
   >
     <i class="material-icons">{{ icon }}</i>
