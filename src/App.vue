@@ -4,9 +4,9 @@ import MButton from '@/components/MButton.vue'
 import MSwitch from '@/components/MSwitch.vue'
 import MFAB from './components/MFAB.vue'
 import MDropdown from './components/MDropdown.vue'
-
+import MButtonCloud from './components/MButtonCloud.vue'
 export default {
-  components: { MButton, MSwitch, MBreadcrumbs, MFAB, MDropdown },
+  components: { MButton, MSwitch, MBreadcrumbs, MFAB, MDropdown, MButtonCloud },
 
   data() {
     return {
@@ -48,6 +48,9 @@ export default {
     <MSwitch v-model="isLoggedIn" />
     <article>
       <MDropdown v-if="isLoggedIn" />
+    </article>
+    <article>
+      <MButtonCloud />
     </article>
   </section>
 </template>
