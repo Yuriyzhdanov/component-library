@@ -11,7 +11,6 @@ export default {
 
   data() {
     return {
-      users: [],
       isAgeConfirmed: false,
       hasNewMessage: true,
       isLoggedIn: true,
@@ -67,7 +66,7 @@ export default {
       <MFAB icon="home" v-model="hasNewMessage" :is-show="isLoggedIn" />
     </article>
     <article>
-      <MLinks :list-available="users" :selected-item="selectedUser" />
+      <MLinks :list-available="users" v-model="selectedUser" />
     </article>
   </section>
 </template>

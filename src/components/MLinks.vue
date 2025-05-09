@@ -1,6 +1,8 @@
 <script>
 export default {
-  props: ['listAvailable', 'selectedItem'],
+  props: ['listAvailable', 'modelValue'],
+
+  emits: ['update:modelValue'],
 }
 </script>
 
@@ -11,8 +13,8 @@ export default {
       :key="item"
       href="#!"
       class="collection-item waves-effect"
-      :class="selectedItem === item && 'waves-light active'"
-      @click="selectedItem = item"
+      :class="modelValue === item && 'waves-light active'"
+      @click="$emit('update:modelValue', item)"
     >
       {{ item }}
     </a>
