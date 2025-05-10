@@ -7,7 +7,7 @@ export default {
   },
 
   mounted() {
-    this.instance = M.Dropdown.init(this.$refs.elDropdown)
+    this.instance = M.Dropdown.init(this.$refs.elButton)
     this.interval = setInterval(() => {}, 1000)
   },
 
