@@ -5,17 +5,28 @@ import MSwitch from '@/components/MSwitch.vue'
 import MFAB from './components/MFAB.vue'
 import MDropdown from './components/MDropdown.vue'
 import MLinks from './components/MLinks.vue'
+import MPagination from './components/MPagination.vue'
 
 export default {
-  components: { MButton, MSwitch, MBreadcrumbs, MFAB, MDropdown, MLinks },
+  components: {
+    MButton,
+    MSwitch,
+    MBreadcrumbs,
+    MFAB,
+    MDropdown,
+    MLinks,
+    MPagination,
+  },
 
   data() {
     return {
-      isAgeConfirmed: false,
-      hasNewMessage: true,
-      isLoggedIn: true,
+      // isAgeConfirmed: false,
+      // hasNewMessage: true,
+      // isLoggedIn: true,
       users: ['vasya', 'petya', 'fedya', 'masha'],
       selectedUser: 'masha',
+      totalPages: 15,
+      currentPage: 7,
     }
   },
 
@@ -29,44 +40,18 @@ export default {
 
 <template>
   <section>
-    <!-- <article>
-      <MBreadcrumbs />
-    </article>
-
-    <article>
-      <MButton :is-disabled="isButtonDisabled" @click="users.push({})" />
-      <MButton />
-    </article>
-
-    <article>
-      <MSwitch v-model="hasNewMessage" />
-      
-    </article>
-
-  -->
-
-    <!-- 
-    <article>
-      <MDropdown v-if="isLoggedIn" />
-    </article>
-    <article>
-      <MButtonCloud />
-    </article> -->
-
-    <article>
-      <MButton size="small" caption="Удалить" icon="remove" />
-      <MButton caption="Добавить" icon="add" :isIconRight="true" />
-      <MButton size="large" caption="Создать" icon="create" />
-    </article>
-    <article></article>
-    <article>
-      <MSwitch v-model="isLoggedIn" />
-    </article>
-    <article>
-      <MFAB icon="home" v-model="hasNewMessage" :is-show="isLoggedIn" />
-    </article>
     <article>
       <MLinks :list-available="users" v-model="selectedUser" />
+    </article>
+    <article>
+      <h1>{{ selectedUser }}</h1>
+    </article>
+    <article>
+      <MPagination :total-pages="totalPages" v-model="currentPage" />
+    </article>
+    <article>
+      <h1>{{ totalPages }}</h1>
+      <h1>{{ currentPage }}</h1>
     </article>
   </section>
 </template>
