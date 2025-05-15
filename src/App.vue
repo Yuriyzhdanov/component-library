@@ -8,6 +8,8 @@ import MLinks from './components/MLinks.vue'
 import MPagination from './components/MPagination.vue'
 import MAvatar from './components/MAvatar.vue'
 
+import dog1 from '.assets/img/1.jpg'
+
 export default {
   components: {
     MButton,
@@ -25,7 +27,35 @@ export default {
       // isAgeConfirmed: false,
       // hasNewMessage: true,
       // isLoggedIn: true,
+      dog1,
       users: ['vasya', 'petya', 'fedya', 'masha'],
+      dogs: [
+        {
+          firstName: 'Барсик',
+          secondName: 'Лапочкин',
+          jobTitle: 'Поводырь',
+          // img: '/images/1.jpeg',
+          isFavorite: true,
+        },
+        {
+          firstName: 'Рекс',
+          secondName: 'Стальной',
+          jobTitle: 'Спасатель',
+          isFavorite: false,
+        },
+        {
+          firstName: 'Бобик',
+          secondName: 'Умняшка',
+          jobTitle: 'Детектив',
+          isFavorite: false,
+        },
+        {
+          firstName: 'Шарик',
+          secondName: 'Быстрый',
+          jobTitle: 'Курьер',
+          isFavorite: false,
+        },
+      ],
       selectedUser: 'masha',
       totalPages: 15,
       currentPage: 7,
@@ -56,7 +86,8 @@ export default {
       <h1>{{ currentPage }}</h1>
     </article> -->
     <article>
-      <MAvatar />
+      <MAvatar :dogs="dogs" />
+      {{ dog1 }}
     </article>
   </section>
 </template>

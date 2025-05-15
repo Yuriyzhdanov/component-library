@@ -1,15 +1,39 @@
-<script></script>
+<script>
+export default {
+  props: ['dogs'],
+  emits: [''],
+  data() {
+    return {
+      localDogs: this.dogs.map(dog => ({
+        ...dog,
+        isFavorite: false,
+      })),
+    }
+  },
+  methods: {
+    toggleFavorite(index) {
+      this.localDogs[index].isFavorite = !this.localDogs[index].isFavorite
+    },
+  },
+}
+</script>
 <template>
   <ul class="collection">
-    <li class="collection-item avatar">
-      <img src="../images/1.jpg" alt="" class="circle" />
-      <span class="title">Title</span>
+    <li
+      v-for="(dog, index) of dogs"
+      :key="index"
+      class="collection-item avatar"
+    >
+      <img :src="dog.img" alt="" class="circle" />
+      <span class="title">{{ dog.firstName }}</span>
       <p>
-        First Line <br />
-        Second Line
+        {{ dog.secondName }} <br />
+        {{ dog.jobTitle }}
       </p>
-      <a href="#!" class="secondary-content"
-        ><i class="material-icons">grade</i></a
+      <a href="#!" class="secondary-content" @click="toggleFavorite(index)"
+        ><i class="material-icons"
+          >{{ dog.isFavorite ? 'grade' : 'star_border' }}
+        </i></a
       >
     </li>
   </ul>
