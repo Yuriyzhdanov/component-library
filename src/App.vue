@@ -8,7 +8,9 @@ import MLinks from './components/MLinks.vue'
 import MPagination from './components/MPagination.vue'
 import MAvatar from './components/MAvatar.vue'
 
-import dog1 from '.assets/img/1.jpg'
+import dog1 from './assets/img/1.jpg'
+import dog2 from './assets/img/2.jpg'
+import dog3 from './assets/img/3.jpg'
 
 export default {
   components: {
@@ -34,19 +36,21 @@ export default {
           firstName: 'Барсик',
           secondName: 'Лапочкин',
           jobTitle: 'Поводырь',
-          // img: '/images/1.jpeg',
+          img: dog1,
           isFavorite: true,
         },
         {
           firstName: 'Рекс',
           secondName: 'Стальной',
           jobTitle: 'Спасатель',
+          img: dog2,
           isFavorite: false,
         },
         {
           firstName: 'Бобик',
           secondName: 'Умняшка',
           jobTitle: 'Детектив',
+          img: dog3,
           isFavorite: false,
         },
         {
@@ -87,7 +91,6 @@ export default {
     </article> -->
     <article>
       <MAvatar :dogs="dogs" />
-      {{ dog1 }}
     </article>
   </section>
 </template>

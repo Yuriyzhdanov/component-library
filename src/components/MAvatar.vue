@@ -24,7 +24,9 @@ export default {
       :key="index"
       class="collection-item avatar"
     >
-      <img :src="dog.img" alt="" class="circle" />
+      <div class="circle">
+        <img :src="dog.img" alt="" />
+      </div>
       <span class="title">{{ dog.firstName }}</span>
       <p>
         {{ dog.secondName }} <br />
@@ -38,3 +40,12 @@ export default {
     </li>
   </ul>
 </template>
+
+<style scoped>
+img {
+  height: 100%;
+  transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+}
+</style>
