@@ -6,6 +6,7 @@ import MFAB from './components/MFAB.vue'
 import MDropdown from './components/MDropdown.vue'
 import MLinks from './components/MLinks.vue'
 import MPagination from './components/MPagination.vue'
+import MAvatar from './components/MAvatar.vue'
 
 export default {
   components: {
@@ -16,6 +17,7 @@ export default {
     MDropdown,
     MLinks,
     MPagination,
+    MAvatar,
   },
 
   data() {
@@ -49,9 +51,12 @@ export default {
     <article>
       <MPagination :total-pages="totalPages" v-model="currentPage" />
     </article>
-    <article>
+    <!-- <article>
       <h1>{{ totalPages }}</h1>
       <h1>{{ currentPage }}</h1>
+    </article> -->
+    <article>
+      <MAvatar />
     </article>
   </section>
 </template>
