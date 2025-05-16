@@ -11,6 +11,7 @@ import MAvatar from './components/MAvatar.vue'
 import dog1 from './assets/img/1.jpg'
 import dog2 from './assets/img/2.jpg'
 import dog3 from './assets/img/3.jpg'
+import dog4 from './assets/img/4.jpg'
 
 export default {
   components: {
@@ -57,6 +58,7 @@ export default {
           firstName: 'Шарик',
           secondName: 'Быстрый',
           jobTitle: 'Курьер',
+          img: dog4,
           isFavorite: false,
         },
       ],
@@ -91,6 +93,7 @@ export default {
     </article> -->
     <article>
       <MAvatar :dogs="dogs" />
+      {{ dog1 }}
     </article>
   </section>
 </template>
