@@ -6,7 +6,7 @@ import MFAB from './components/MFAB.vue'
 import MDropdown from './components/MDropdown.vue'
 import MLinks from './components/MLinks.vue'
 import MPagination from './components/MPagination.vue'
-import MAvatar from './components/MAvatar.vue'
+import MAvatarList from './components/m-avatar/MAvatarList.vue'
 
 import dog1 from './assets/img/1.jpg'
 import dog2 from './assets/img/2.jpg'
@@ -22,7 +22,7 @@ export default {
     MDropdown,
     MLinks,
     MPagination,
-    MAvatar,
+    MAvatarList,
   },
 
   data() {
@@ -30,10 +30,15 @@ export default {
       // isAgeConfirmed: false,
       // hasNewMessage: true,
       // isLoggedIn: true,
-      dog1,
-      users: ['vasya', 'petya', 'fedya', 'masha'],
+      // dog1,
+      // users: ['vasya', 'petya', 'fedya', 'masha'],
+      // selectedUser: 'masha',
+      // totalPages: 15,
+      // currentPage: 7,
+
       dogs: [
         {
+          id: 1,
           firstName: 'Барсик',
           secondName: 'Лапочкин',
           jobTitle: 'Поводырь',
@@ -41,6 +46,7 @@ export default {
           isFavorite: true,
         },
         {
+          id: 2,
           firstName: 'Рекс',
           secondName: 'Стальной',
           jobTitle: 'Спасатель',
@@ -48,6 +54,7 @@ export default {
           isFavorite: false,
         },
         {
+          id: 3,
           firstName: 'Бобик',
           secondName: 'Умняшка',
           jobTitle: 'Детектив',
@@ -55,6 +62,7 @@ export default {
           isFavorite: false,
         },
         {
+          id: 4,
           firstName: 'Шарик',
           secondName: 'Быстрый',
           jobTitle: 'Курьер',
@@ -62,23 +70,28 @@ export default {
           isFavorite: false,
         },
       ],
-      selectedUser: 'masha',
-      totalPages: 15,
-      currentPage: 7,
     }
   },
 
-  computed: {
-    isButtonDisabled() {
-      return this.users.length >= 5
-    },
-  },
+  // computed: {
+  //   isButtonDisabled() {
+  //     return this.users.length >= 5
+  //   },
+  // },
 }
 </script>
 
 <template>
   <section>
+    {{ dogs }}
     <article>
+      <MAvatarList :model-value="dogs" @update:model-value="dogs = $event" />
+    </article>
+    <article>
+      <MAvatarList v-model="dogs" />
+    </article>
+
+    <!-- <article>
       <MLinks :list-available="users" v-model="selectedUser" />
     </article>
     <article>
@@ -86,19 +99,15 @@ export default {
     </article>
     <article>
       <MPagination :total-pages="totalPages" v-model="currentPage" />
-    </article>
+    </article> -->
     <!-- <article>
       <h1>{{ totalPages }}</h1>
       <h1>{{ currentPage }}</h1>
     </article> -->
-    <article>
-      <MAvatar :dogs="dogs" />
-      {{ dog1 }}
-    </article>
   </section>
 </template>
 
-<style>
+<style scoped>
 article {
   margin: 25px;
 }
