@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "icon": "filter_drama",
+    "title": "Погода",
+    "subtitle": "Облачность и осадки",
+    "type": "Информация",
+    "badge": 4,
+    "content": "Сегодня пасмурно, возможен дождь. Температура около 12°C.",
+    "image": "https://picsum.photos/100/100",
+    "actions": [
+      {
+        "label": "Подробнее",
+        "link": "#detail"
+      },
+      {
+        "label": "Удалить",
+        "link": "#"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "icon": "place",
+    "title": "Локация",
+    "subtitle": "Текущее местоположение",
+    "type": "Система",
+    "badge": 1,
+    "content": "Ты находишься в Киеве, Украина.",
+    "image": "https://picsum.photos/100/100",
+    "actions": [
+      {
+        "label": "Открыть карту",
+        "link": "#openmap"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "icon": "whatshot",
+    "title": "Популярное",
+    "subtitle": "Темы недели",
+    "type": "Тренды",
+    "badge": null,
+    "content": "Новые технологии, стартапы и крипта снова в топе.",
+    "image": "https://picsum.photos/100/100",
+    "actions": []
+  },
+  {
+    "id": 4,
+    "icon": "event",
+    "title": "Событие",
+    "subtitle": "Конференция Vue.js",
+    "type": "Календарь",
+    "badge": 2,
+    "content": "VueConf состоится в Берлине 25–27 июля. Онлайн и офлайн.",
+    "image": "https://picsum.photos/100/100",
+    "actions": [
+      {
+        "label": "Регистрация",
+        "link": "#register"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "icon": "shopping_cart",
+    "title": "Корзина",
+    "subtitle": "3 товара на сумму 4500₴",
+    "type": "Магазин",
+    "badge": 3,
+    "content": "Ваша корзина содержит товары, которые скоро закончатся в наличии.",
+    "image": "https://picsum.photos/100/100",
+    "actions": [
+      {
+        "label": "Перейти к оплате",
+        "link": "#payment"
+      },
+      {
+        "label": "Очистить корзину",
+        "link": "#"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "icon": "notifications",
+    "title": "Уведомления",
+    "subtitle": "3 новых",
+    "type": "Система",
+    "badge": 3,
+    "content": "Новые обновления системы и сообщений.",
+    "image": "https://picsum.photos/100/100",
+    "actions": [
+      {
+        "label": "Прочитать",
+        "link": "#"
+      },
+      {
+        "label": "Настройки",
+        "link": "#settings"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "icon": "account_circle",
+    "title": "Профиль",
+    "subtitle": "Настройки и безопасность",
+    "type": "Пользователь",
+    "badge": null,
+    "content": "Обновите пароль и просмотрите историю активности.",
+    "image": "https://picsum.photos/100/100",
+    "actions": [
+      {
+        "label": "Открыть профиль",
+        "link": "#"
+      }
+    ]
+  }
+]

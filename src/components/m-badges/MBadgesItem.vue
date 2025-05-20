@@ -18,7 +18,7 @@ export default {
     <div class="collapsible-body">
       <div class="content-wrapper" style="display: flex; gap: 10px">
         <img
-          :src="item.image"
+          :src="item.image + '?id=' + item.id"
           alt="img"
           style="width: 100px; height: 60px; object-fit: cover"
         />

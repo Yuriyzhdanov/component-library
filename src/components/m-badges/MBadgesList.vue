@@ -1,22 +1,19 @@
 <script>
-import { onMounted } from 'vue'
 import MBadgesItem from './MBadgesItem.vue'
 
 export default {
   components: { MBadgesItem },
 
   props: ['items'],
-  setup() {
-    onMounted(() => {
-      const elems = document.querySelectorAll('.collapsible')
-      M.Collapsible.init(elems)
-    })
+
+  mounted() {
+    M.Collapsible.init(this.$refs.elCollapsible)
   },
 }
 </script>
 
 <template>
-  <ul class="collapsible">
+  <ul ref="elCollapsible" class="collapsible">
     <MBadgesItem v-for="item of items" :key="item.id" :item="item" />
   </ul>
 </template>
