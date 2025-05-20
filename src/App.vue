@@ -7,6 +7,7 @@ import MDropdown from './components/MDropdown.vue'
 import MLinks from './components/MLinks.vue'
 import MPagination from './components/MPagination.vue'
 import MAvatarList from './components/m-avatar/MAvatarList.vue'
+import MBadgesList from './components/m-badges/MBadgesList.vue'
 
 import dog1 from './assets/img/1.jpg'
 import dog2 from './assets/img/2.jpg'
@@ -23,6 +24,7 @@ export default {
     MLinks,
     MPagination,
     MAvatarList,
+    MBadgesList,
   },
 
   data() {
@@ -83,13 +85,17 @@ export default {
 
 <template>
   <section>
-    {{ dogs }}
     <article>
+      <MBadgesList />
+    </article>
+    <!-- {{ dogs }} -->
+    <!-- <article>
       <MAvatarList :model-value="dogs" @update:model-value="dogs = $event" />
     </article>
     <article>
       <MAvatarList v-model="dogs" />
-    </article>
+    </article> -->
+    <article></article>
 
     <!-- <article>
       <MLinks :list-available="users" v-model="selectedUser" />
