@@ -19,19 +19,19 @@ export default {
 <template>
   <div ref="elCarousel" class="carousel">
     <a class="carousel-item" href="#one!"
-      ><img src="https://picsum.photos/100/100"
+      ><img src="https://picsum.photos/800/1200?1"
     /></a>
     <a class="carousel-item" href="#two!"
-      ><img src="https://picsum.photos/100/100"
+      ><img src="https://picsum.photos/800/1200?2"
     /></a>
     <a class="carousel-item" href="#three!"
-      ><img src="https://picsum.photos/100/100"
+      ><img src="https://picsum.photos/800/1200?3"
     /></a>
     <a class="carousel-item" href="#four!"
-      ><img src="https://picsum.photos/100/100"
+      ><img src="https://picsum.photos/800/1200?4"
     /></a>
     <a class="carousel-item" href="#five!"
-      ><img src="https://picsum.photos/100/100"
+      ><img src="https://picsum.photos/800/1200?5"
     /></a>
   </div>
 </template>
