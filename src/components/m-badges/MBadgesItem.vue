@@ -8,35 +8,30 @@ export default {
   <li>
     <div class="collapsible-header">
       <i class="material-icons">{{ item.icon }}</i>
-      <div style="flex-grow: 1">
+      <div class="header-text">
         <div>{{ item.title }}</div>
-        <small style="opacity: 0.7">{{ item.subtitle }}</small>
+        <small class="subtitle">{{ item.subtitle }}</small>
       </div>
       <span v-if="item.badge" class="new badge blue">{{ item.badge }}</span>
     </div>
 
     <div class="collapsible-body">
-      <div class="content-wrapper" style="display: flex; gap: 10px">
+      <div class="content-wrapper">
         <img
           :src="item.image + '?id=' + item.id"
           alt="img"
-          style="width: 100px; height: 60px; object-fit: cover"
+          class="item-image"
         />
         <div>
           <p>
             <strong>{{ item.type }}:</strong> {{ item.content }}
           </p>
-          <div
-            v-if="item.actions.length"
-            class="actions"
-            style="margin-top: 10px"
-          >
+          <div v-if="item.actions.length" class="actions">
             <a
               v-for="(action, idx) in item.actions"
               :key="idx"
               :href="action.link"
-              class="btn-small blue lighten-1"
-              style="margin-right: 5px"
+              class="btn-small blue lighten-1 action-button"
             >
               {{ action.label }}
             </a>
@@ -46,3 +41,32 @@ export default {
     </div>
   </li>
 </template>
+
+<style scoped>
+.header-text {
+  flex-grow: 1;
+}
+
+.subtitle {
+  opacity: 0.7;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.item-image {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.action-button {
+  margin-right: 5px;
+}
+</style>
