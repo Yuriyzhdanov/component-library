@@ -35,3 +35,9 @@ export default {
     /></a>
   </div>
 </template>
+
+<style scoped>
+.carousel {
+  border: 1px solid black;
+}
+</style>
