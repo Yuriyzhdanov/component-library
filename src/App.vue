@@ -15,6 +15,7 @@ import dog3 from './assets/img/3.jpg'
 import dog4 from './assets/img/4.jpg'
 import dogs from './assets/json/dogs.json'
 import items from './assets/json/items.json'
+import MCarousel from './components/MCarousel.vue'
 
 export default {
   components: {
@@ -27,6 +28,7 @@ export default {
     MPagination,
     MAvatarList,
     MBadgesList,
+    MCarousel,
   },
 
   data() {
@@ -56,8 +58,12 @@ export default {
 
 <template>
   <section>
-    <article>
+    <!-- <article>
       <MBadgesList :items="items" />
+    </article> -->
+
+    <article>
+      <MCarousel />
     </article>
     <!-- {{ dogs }} -->
     <!-- <article>
@@ -66,7 +72,6 @@ export default {
     <article>
       <MAvatarList v-model="dogs" />
     </article> -->
-    <article></article>
 
     <!-- <article>
       <MLinks :list-available="users" v-model="selectedUser" />
