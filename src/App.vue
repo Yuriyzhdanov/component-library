@@ -8,6 +8,7 @@ import MLinks from './components/MLinks.vue'
 import MPagination from './components/MPagination.vue'
 import MAvatarList from './components/m-avatar/MAvatarList.vue'
 import MBadgesList from './components/m-badges/MBadgesList.vue'
+import MChips from './components/MChips.vue'
 
 import dog1 from './assets/img/1.jpg'
 import dog2 from './assets/img/2.jpg'
@@ -27,6 +28,7 @@ export default {
     MPagination,
     MAvatarList,
     MBadgesList,
+    MChips,
   },
 
   data() {
@@ -43,6 +45,8 @@ export default {
       dogs: dogs,
 
       items: items,
+
+      words: ['Foo', 'Bar', 'Baz'],
     }
   },
 
@@ -57,8 +61,14 @@ export default {
 <template>
   <section>
     <article>
-      <MBadgesList :items="items" />
+      <MChips :list="words" />
     </article>
+
+    <article>
+      <h1>{{ words }}</h1>
+    </article>
+
+    <!-- <MBadgesList :items="items" /> -->
     <!-- {{ dogs }} -->
     <!-- <article>
       <MAvatarList :model-value="dogs" @update:model-value="dogs = $event" />
@@ -66,7 +76,7 @@ export default {
     <article>
       <MAvatarList v-model="dogs" />
     </article> -->
-    <article></article>
+    <!-- <article></article> -->
 
     <!-- <article>
       <MLinks :list-available="users" v-model="selectedUser" />
