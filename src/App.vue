@@ -8,6 +8,7 @@ import MLinks from './components/MLinks.vue'
 import MPagination from './components/MPagination.vue'
 import MAvatarList from './components/m-avatar/MAvatarList.vue'
 import MBadgesList from './components/m-badges/MBadgesList.vue'
+import MChips from './components/MChips.vue'
 
 import dog1 from './assets/img/1.jpg'
 import dog2 from './assets/img/2.jpg'
@@ -15,6 +16,7 @@ import dog3 from './assets/img/3.jpg'
 import dog4 from './assets/img/4.jpg'
 import dogs from './assets/json/dogs.json'
 import items from './assets/json/items.json'
+
 import MCarousel from './components/MCarousel.vue'
 
 export default {
@@ -29,6 +31,7 @@ export default {
     MAvatarList,
     MBadgesList,
     MCarousel,
+    MChips,
   },
 
   data() {
@@ -45,6 +48,8 @@ export default {
       dogs: dogs,
 
       items: items,
+
+      words: ['Foo', 'Bar', 'Baz'],
     }
   },
 
@@ -65,6 +70,15 @@ export default {
     <article>
       <MCarousel />
     </article>
+    <article>
+      <MChips v-model="words" />
+    </article>
+
+    <article>
+      <h1>{{ words }}</h1>
+    </article>
+
+    <!-- <MBadgesList :items="items" /> -->
     <!-- {{ dogs }} -->
     <!-- <article>
       <MAvatarList :model-value="dogs" @update:model-value="dogs = $event" />

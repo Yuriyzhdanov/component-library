@@ -5,4 +5,4 @@ import 'material-icons/iconfont/material-icons.css'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css'
 
-createApp(App).mount('#app')
+window.vm = createApp(App).mount('#app')
