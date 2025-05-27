@@ -4,24 +4,34 @@
 // МОДЕЛЬ ПРЕДСТАВЛЕНИЯ
 
 const options = {
-  props: ['list'],
+  props: ['modelValue'],
 
+  emits: ['update:modelValue'],
   data() {
     return {
       instance: null,
+      localData: {},
     }
   },
 
   methods: {
     handle() {
       this.instance.addChip({ tag: 'new chip' })
+      this.$emit('update:modelValue', [...this.modelValue, tagText])
+    },
+    syncChipsFromInstance() {
+      const chips = this.instance.chipsData.map(chip => chip.tag)
+      this.$emit('update:modelValue', chips)
     },
   },
 
   mounted() {
     const options = {
-      data: this.list.map(item => ({ tag: item })),
+      data: this.modelValue.map(tag => ({ tag })),
+      onChipAdd: () => this.syncChipsFromInstance(),
+      onChipDelete: () => this.syncChipsFromInstance(),
     }
+
     this.instance = M.Chips.init(this.$refs.elChips, options)
     window.instance = this.instance
   },

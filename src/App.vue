@@ -16,6 +16,7 @@ import dog3 from './assets/img/3.jpg'
 import dog4 from './assets/img/4.jpg'
 import dogs from './assets/json/dogs.json'
 import items from './assets/json/items.json'
+// import MCarousel from './components/MCarousel.vue'
 
 export default {
   components: {
@@ -61,7 +62,7 @@ export default {
 <template>
   <section>
     <article>
-      <MChips :list="words" />
+      <MChips v-model="words" />
     </article>
 
     <article>
@@ -76,6 +77,7 @@ export default {
     <article>
       <MAvatarList v-model="dogs" />
     </article> -->
+
     <!-- <article></article> -->
 
     <!-- <article>
