@@ -3,15 +3,26 @@
 // VIEWMODEL
 // МОДЕЛЬ ПРЕДСТАВЛЕНИЯ
 
-const options = {
+import { watch } from 'vue'
+
+export default {
   props: ['modelValue'],
 
   emits: ['update:modelValue'],
+
   data() {
     return {
       instance: null,
-      localData: {},
     }
+  },
+
+  watch: {
+    modelValue: {
+      deep: true,
+      handler(newValue) {
+        //
+      },
+    },
   },
 
   methods: {
@@ -31,13 +42,10 @@ const options = {
       onChipAdd: () => this.syncChipsFromInstance(),
       onChipDelete: () => this.syncChipsFromInstance(),
     }
-
     this.instance = M.Chips.init(this.$refs.elChips, options)
     window.instance = this.instance
   },
 }
-
-export default options
 </script>
 
 <template>

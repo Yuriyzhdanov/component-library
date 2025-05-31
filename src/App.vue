@@ -49,7 +49,7 @@ export default {
 
       items: items,
 
-      words: ['Foo', 'Bar', 'Baz'],
+      words: ['Foo', 'Bar', 'Baz', 'QQQ'],
     }
   },
 
@@ -67,15 +67,18 @@ export default {
       <MBadgesList :items="items" />
     </article> -->
 
-    <article>
+    <!-- <article>
       <MCarousel />
-    </article>
-    <article>
-      <MChips v-model="words" />
-    </article>
+    </article> -->
 
     <article>
-      <h1>{{ words }}</h1>
+      <MChips :model-value="words" @update:model-value="words = $event" />
+    </article>
+
+    <button @click="words.push('yo!')">yo!</button>
+
+    <article>
+      <h3>{{ words }}</h3>
     </article>
 
     <!-- <MBadgesList :items="items" /> -->
