@@ -1,10 +1,4 @@
 <script>
-// M V VM
-// VIEWMODEL
-// МОДЕЛЬ ПРЕДСТАВЛЕНИЯ
-
-import { watch } from 'vue'
-
 export default {
   props: ['modelValue'],
 
@@ -13,6 +7,7 @@ export default {
   data() {
     return {
       instance: null,
+      localChips: [...this.modelValue],
     }
   },
 
@@ -20,27 +15,38 @@ export default {
     modelValue: {
       deep: true,
       handler(newValue) {
-        //
+        this.localChips = [...newValue]
+        this.clearAllChips()
+        newValue.forEach(v => this.instance.addChip({ tag: v }))
+      },
+    },
+    localChips: {
+      deep: true,
+      handler(newValue, oldValue) {
+        if (newValue === oldValue) this.$emit('update:modelValue', newValue)
       },
     },
   },
 
   methods: {
-    handle() {
-      this.instance.addChip({ tag: 'new chip' })
-      this.$emit('update:modelValue', [...this.modelValue, tagText])
+    clearAllChips() {
+      const chipsCount = this.instance.chipsData.length
+      for (let i = 0; i < chipsCount; i++) this.instance.deleteChip(0)
+      this.updateLocalChips()
     },
-    syncChipsFromInstance() {
-      const chips = this.instance.chipsData.map(chip => chip.tag)
-      this.$emit('update:modelValue', chips)
+
+    updateLocalChips() {
+      this.localChips.splice(0, Infinity)
+      this.localChips.push(...this.instance.chipsData.map(chip => chip.tag))
+      // this.localChips = this.instance.chipsData.map(chip => chip.tag)
     },
   },
 
   mounted() {
     const options = {
-      data: this.modelValue.map(tag => ({ tag })),
-      onChipAdd: () => this.syncChipsFromInstance(),
-      onChipDelete: () => this.syncChipsFromInstance(),
+      data: this.localChips.map(tag => ({ tag })),
+      onChipAdd: () => this.updateLocalChips(),
+      onChipDelete: () => this.updateLocalChips(),
     }
     this.instance = M.Chips.init(this.$refs.elChips, options)
     window.instance = this.instance
@@ -55,4 +61,5 @@ export default {
   <div>
     <button @click="instance.addChip({ tag: 'new chip' })">Force ADD</button>
   </div>
+  <div><button @click="clearAllChips">CLEAR ALL</button></div>
 </template>

@@ -82,11 +82,12 @@ export default {
     </article>
 
     <button @click="words.push('yo!')">yo!</button>
+    <button @click="words.sort(() => Math.random() - 0.5)">shuffle</button>
 
     <article>
       <h3>{{ words }}</h3>
     </article>
-    <article>
+    <!-- <article>
       <ul>
         <li v-for="c of contacts" :key="c.id">
           {{ c.firstName }} {{ c.lastName }} — {{ c.email }}
@@ -103,7 +104,7 @@ export default {
       <p>
         Вы выбрали: <strong>{{ color }}</strong>
       </p>
-    </article>
+    </article> -->
     <!-- <MBadgesList :items="items" /> -->
     <!-- {{ dogs }} -->
     <!-- <article>
