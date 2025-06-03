@@ -10,6 +10,7 @@ import MAvatarList from './components/m-avatar/MAvatarList.vue'
 import MBadgesList from './components/m-badges/MBadgesList.vue'
 import MChips from './components/MChips.vue'
 import MInputs from './components/m-inputs/MInputs.vue'
+import MRadio from './components/MRadio.vue'
 
 import dog1 from './assets/img/1.jpg'
 import dog2 from './assets/img/2.jpg'
@@ -34,6 +35,7 @@ export default {
     MCarousel,
     MChips,
     MInputs,
+    MRadio,
   },
 
   data() {
@@ -52,6 +54,8 @@ export default {
       items: items,
 
       words: ['Foo', 'Bar', 'Baz', 'QQQ'],
+      contacts: [],
+      selectedColor: '',
     }
   },
 
@@ -82,11 +86,24 @@ export default {
     <article>
       <h3>{{ words }}</h3>
     </article>
-
     <article>
-      <MInputs />
+      <ul>
+        <li v-for="c of contacts" :key="c.id">
+          {{ c.firstName }} {{ c.lastName }} — {{ c.email }}
+        </li>
+      </ul>
     </article>
-
+    <article>
+      <MInputs @contact-submitted="contacts.push($event)" />
+    </article>
+    <article>
+      <MRadio :model-value="selectedColor" />
+    </article>
+    <article>
+      <p>
+        Вы выбрали: <strong>{{ color }}</strong>
+      </p>
+    </article>
     <!-- <MBadgesList :items="items" /> -->
     <!-- {{ dogs }} -->
     <!-- <article>
