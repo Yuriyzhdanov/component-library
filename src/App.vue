@@ -9,6 +9,7 @@ import MPagination from './components/MPagination.vue'
 import MAvatarList from './components/m-avatar/MAvatarList.vue'
 import MBadgesList from './components/m-badges/MBadgesList.vue'
 import MChips from './components/MChips.vue'
+import MInputs from './components/m-inputs/MInputs.vue'
 
 import dog1 from './assets/img/1.jpg'
 import dog2 from './assets/img/2.jpg'
@@ -32,6 +33,7 @@ export default {
     MBadgesList,
     MCarousel,
     MChips,
+    MInputs,
   },
 
   data() {
@@ -79,6 +81,10 @@ export default {
 
     <article>
       <h3>{{ words }}</h3>
+    </article>
+
+    <article>
+      <MInputs />
     </article>
 
     <!-- <MBadgesList :items="items" /> -->
