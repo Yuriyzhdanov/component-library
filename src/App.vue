@@ -87,10 +87,14 @@ export default {
     <article>
       <h3>{{ words }}</h3>
     </article>
-    <!-- <article>
+    <article>
       <ul>
         <li v-for="c of contacts" :key="c.id">
-          {{ c.firstName }} {{ c.lastName }} — {{ c.email }}
+          <p>id: {{ c.id }}</p>
+          <p>firstName: {{ c.firstName }}</p>
+          <p>lastName: {{ c.lastName }}</p>
+          <p>password: {{ c.password }}</p>
+          <p>email: {{ c.email }}</p>
         </li>
       </ul>
     </article>

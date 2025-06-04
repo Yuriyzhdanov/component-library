@@ -18,12 +18,20 @@ export default {
       contact: initContact(),
     }
   },
+
   methods: {
     submitContact() {
       const REQUIRED_FIELDS = ['firstName', 'lastName', 'password', 'email']
-      const isVerified = REQUIRED_FIELDS.every(rf => this.contact[rf])
+      const isVerified = REQUIRED_FIELDS.every(rf => this.contact[rf].trim())
       if (!isVerified) return
-      this.$emit('contact-submitted', { ...this.contact })
+
+      const hashedPassword = CryptoJS.SHA256(this.contact.password).toString()
+
+      this.$emit('contact-submitted', {
+        ...this.contact,
+        password: hashedPassword,
+      })
+
       this.contact = initContact()
     },
   },
@@ -32,7 +40,7 @@ export default {
 
 <template>
   <div class="row">
-    <form class="col s12">
+    <form @submit.prevent="submitContact" class="col s12">
       <div class="row">
         <div class="input-field col s6">
           <input
@@ -75,7 +83,7 @@ export default {
           <label for="email">Email</label>
         </div>
       </div>
-      <button @click="submitContact" class="btn">Добавить</button>
+      <button type="submit" class="btn">Добавить</button>
     </form>
   </div>
 </template>
