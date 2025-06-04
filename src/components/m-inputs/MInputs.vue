@@ -1,4 +1,6 @@
 <script>
+import CryptoJS from 'crypto-js'
+
 const makeId = () => ((Math.random() * 0xffffffff) >>> 0).toString(16)
 const initContact = () => ({
   id: makeId(),
