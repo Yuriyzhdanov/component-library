@@ -55,7 +55,7 @@ export default {
 
       words: ['Foo', 'Bar', 'Baz', 'QQQ'],
       contacts: [],
-      selectedColor: '',
+      selectedColor: 'Red',
     }
   },
 
@@ -102,13 +102,16 @@ export default {
       <MInputs @contact-submitted="contacts.push($event)" />
     </article>
     <article>
-      <MRadio :model-value="selectedColor" />
+      <MRadio
+        :model-value="selectedColor"
+        @update:modelValue="newColor => (selectedColor = newColor)"
+      />
     </article>
     <article>
       <p>
-        Вы выбрали: <strong>{{ color }}</strong>
+        Вы выбрали: <strong>{{ selectedColor }}</strong>
       </p>
-    </article> -->
+    </article>
     <!-- <MBadgesList :items="items" /> -->
     <!-- {{ dogs }} -->
     <!-- <article>

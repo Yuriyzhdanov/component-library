@@ -12,11 +12,17 @@ export default {
 }
 </script>
 <template>
-  <form action="#">
+  <form>
     <p v-for="color of colors" :key="color">
       <label>
-        <input name="group1" type="radio" checked />
-        <span>Red</span>
+        <input
+          name="group1"
+          type="radio"
+          :value="color"
+          :checked="color === modelValue"
+          @change="$emit('update:modelValue', color)"
+        />
+        <span>{{ color }}</span>
       </label>
     </p>
   </form>
