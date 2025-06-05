@@ -17,7 +17,20 @@ export default {
       handler(newValue) {
         this.localChips = [...newValue]
         this.clearAllChips()
-        newValue.forEach(v => this.instance.addChip({ tag: v }))
+        newValue.forEach(v => {
+          console.log(v)
+          this.instance.addChip({ tag: v })
+        })
+
+        console.log(newValue)
+        console.log(this.localChips)
+
+        console.log(newValue)
+        console.log(this.getRenderedChips())
+
+        if (newValue.length !== this.getRenderedChips().length) {
+          this.$emit('update:modelValue', [...this.getRenderedChips()])
+        }
       },
     },
     localChips: {
@@ -29,6 +42,9 @@ export default {
   },
 
   methods: {
+    getRenderedChips() {
+      return this.instance.chipsData.map(chip => chip.tag)
+    },
     clearAllChips() {
       const chipsCount = this.instance.chipsData.length
       for (let i = 0; i < chipsCount; i++) this.instance.deleteChip(0)

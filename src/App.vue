@@ -104,7 +104,7 @@ export default {
     <article>
       <MRadio
         :model-value="selectedColor"
-        @update:modelValue="newColor => (selectedColor = newColor)"
+        @update:modelValue="selectedColor = $event"
       />
     </article>
     <article>
