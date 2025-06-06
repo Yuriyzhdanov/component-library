@@ -15,24 +15,16 @@ export default {
     modelValue: {
       deep: true,
       handler(newValue) {
+        console.log('=====')
         this.localChips = [...newValue]
         this.clearAllChips()
-        newValue.forEach(v => {
-          console.log(v)
-          this.instance.addChip({ tag: v })
-        })
-
-        console.log(newValue)
-        console.log(this.localChips)
-
-        console.log(newValue)
-        console.log(this.getRenderedChips())
-
+        newValue.forEach(v => this.instance.addChip({ tag: v }))
         if (newValue.length !== this.getRenderedChips().length) {
           this.$emit('update:modelValue', [...this.getRenderedChips()])
         }
       },
     },
+
     localChips: {
       deep: true,
       handler(newValue, oldValue) {
@@ -52,9 +44,9 @@ export default {
     },
 
     updateLocalChips() {
+      console.log('qqq')
       this.localChips.splice(0, Infinity)
-      this.localChips.push(...this.instance.chipsData.map(chip => chip.tag))
-      // this.localChips = this.instance.chipsData.map(chip => chip.tag)
+      this.localChips.push(...this.getRenderedChips())
     },
   },
 
@@ -66,6 +58,7 @@ export default {
     }
     this.instance = M.Chips.init(this.$refs.elChips, options)
     window.instance = this.instance
+    this.updateLocalChips()
   },
 }
 </script>

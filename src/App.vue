@@ -53,7 +53,7 @@ export default {
 
       items: items,
 
-      words: ['Foo', 'Bar', 'Baz', 'QQQ'],
+      words: ['Foo', 'Bar', 'Baz', 'QQQ', 'RRR', 'SSS', 'TTT'],
       contacts: [],
       selectedColor: 'Red',
     }
@@ -81,13 +81,17 @@ export default {
       <MChips :model-value="words" @update:model-value="words = $event" />
     </article>
 
+    <article>
+      <MChips :model-value="words" @update:model-value="words = $event" />
+    </article>
+
     <button @click="words.push('yo!')">yo!</button>
     <button @click="words.sort(() => Math.random() - 0.5)">shuffle</button>
 
     <article>
       <h3>{{ words }}</h3>
     </article>
-    <article>
+    <!-- <article>
       <ul>
         <li v-for="c of contacts" :key="c.id">
           <p>id: {{ c.id }}</p>
@@ -111,7 +115,7 @@ export default {
       <p>
         Вы выбрали: <strong>{{ selectedColor }}</strong>
       </p>
-    </article>
+    </article> -->
     <!-- <MBadgesList :items="items" /> -->
     <!-- {{ dogs }} -->
     <!-- <article>
