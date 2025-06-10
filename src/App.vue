@@ -53,7 +53,7 @@ export default {
 
       items: items,
 
-      words: ['Foo', 'Bar', 'Baz', 'QQQ', 'RRR', 'SSS', 'TTT'],
+      words: ['Foo', 'Bar', 'Baz', 'QQQ', 'RRR', 'SSS', 'TTT', 'TTT'],
       contacts: [],
       selectedColor: 'Red',
     }
