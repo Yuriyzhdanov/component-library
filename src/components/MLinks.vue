@@ -2,7 +2,7 @@
 export default {
   props: ['listAvailable', 'modelValue'],
 
-  emits: ['update:modelValue'],
+  emits: ['chips-updated'],
 }
 </script>
 
@@ -14,7 +14,7 @@ export default {
       href="#!"
       class="collection-item waves-effect"
       :class="modelValue === item && 'waves-light active'"
-      @click="$emit('update:modelValue', item)"
+      @click="$emit('chips-updated', item)"
     >
       {{ item }}
     </a>

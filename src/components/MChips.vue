@@ -2,9 +2,9 @@
 import compareArrays from '../../compareArrays.js'
 
 export default {
-  props: ['modelValue'],
+  props: ['chips', 'selectedChip'],
 
-  emits: ['update:modelValue'],
+  emits: ['chips-updated', 'selected-chip-updated'],
 
   data() {
     return {
@@ -13,7 +13,7 @@ export default {
   },
 
   watch: {
-    modelValue: {
+    chips: {
       deep: true,
       handler(newValue) {
         this.updateInstance()
@@ -30,12 +30,12 @@ export default {
     },
 
     chipsUpdated() {
-      this.$emit('update:modelValue', this.getRenderedChips())
+      this.$emit('chips-updated', this.getRenderedChips())
     },
 
     updateInstance() {
       this.instance?.destroy()
-      const uniq = [...new Set(this.modelValue)]
+      const uniq = [...new Set(this.chips)]
       const options = {
         data: [...uniq.map(tag => ({ tag }))],
         onChipAdd: () => this.chipsUpdated(),

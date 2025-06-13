@@ -54,6 +54,8 @@ export default {
       items: items,
 
       words: ['Foo', 'Bar', 'Baz', 'QQQ', 'RRR', 'SSS', 'TTT', 'TTT'],
+      selectedWord: '',
+
       contacts: [],
       selectedColor: 'Red',
     }
@@ -77,12 +79,17 @@ export default {
       <MCarousel />
     </article> -->
 
-    <article>
+    <!-- <article>
       <MChips :model-value="words" @update:model-value="words = $event" />
-    </article>
+    </article> -->
 
     <article>
-      <MChips :model-value="words" @update:model-value="words = $event" />
+      <MChips
+        :chips="words"
+        @chips-updated="words = $event"
+        :selected-chip="selectedWord"
+        @selected-chip-updated="selectedWord = $event"
+      />
     </article>
 
     <button @click="words.push('yo!')">yo!</button>
@@ -90,6 +97,7 @@ export default {
 
     <article>
       <h3>{{ words }}</h3>
+      <h4>{{ selectedWord }}</h4>
     </article>
     <!-- <article>
       <ul>

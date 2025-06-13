@@ -2,7 +2,7 @@
 export default {
   props: ['modelValue'],
 
-  emits: ['update:modelValue'],
+  emits: ['chips-updated'],
 
   data() {
     return {
@@ -20,7 +20,7 @@ export default {
           type="radio"
           :value="color"
           :checked="color === modelValue"
-          @change="$emit('update:modelValue', color)"
+          @change="$emit('chips-updated', color)"
         />
         <span>{{ color }}</span>
       </label>
